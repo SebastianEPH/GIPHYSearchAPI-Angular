@@ -1,11 +1,16 @@
 <!--  Sidebar -->
 <div class="border-right p3 border border-success" id="sidebar">
-  <h3>Gif title creo </h3>
+  <h3>Gif search</h3>
   <hr class="text-white"/>
   <div class="list-group list-reset  p-1">
-    <a *ngFor="let item of history " class="list-group-item list-group-item-action" href="">
+    <a (click)="setSearch(item, $event)"
+
+       *ngFor="let item of history " class="btn btn-outline-primary" href="">
       {{item}}
     </a>
+    <br>
+
+    <a (click)="deleteHistory()" class="btn btn-outline-danger">Delete History</a>
   </div>
 </div>
 <!--  End Sidebar -->

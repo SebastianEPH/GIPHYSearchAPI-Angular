@@ -6,17 +6,22 @@ import {GifService} from "../../gifs/services/gif.service";
   templateUrl: './sidebar.component.html',
   styleUrls: []
 })
-export class SidebarComponent { // implements OnInit {
-
+export class SidebarComponent {
 
   constructor(private gifService:GifService ) {
   }
 
-  // ngOnInit(): void {
-  // }
+  setSearch(item:string, e:Event){
+    e.preventDefault()
 
-  get history ():String[]{
+    console.log('se obtuvo el item',item)
+    this.gifService.searchGif(item)
+  }
+  get history ():string[]{
     return this.gifService.history;
+  }
+  deleteHistory():void{
+    this.gifService.delAllHistory()
   }
 
 }
